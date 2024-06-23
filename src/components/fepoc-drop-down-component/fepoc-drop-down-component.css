@@ -1,0 +1,40 @@
+:host {
+  display: block;
+}
+
+.drop-down-container {
+  font-family: Arial, sans-serif;
+   /* justify-content: center;
+   align-items: center;
+   height: 100vh;
+   background-color: #f0f0f0; */
+}
+
+.custom-select-container {
+  position: relative;
+  width: 200px;
+}
+
+select {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-color: white;
+  background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23000%22%20d%3D%22M287%2069.4c-3.9-3.9-10.2-3.9-14.1%200L146.2%20196%2019.5%2069.4C17.6%2067.5%2015.2%2066.5%2012.7%2066.5c-2.5%200-4.9%201-6.8%202.9-3.9%203.9-3.9%2010.2%200%2014.1l133.5%20133.5c3.9%203.9%2010.2%203.9%2014.1%200L287%2083.5c3.9-3.9%203.9-10.2%200-14.1z%22/%3E%3C/svg%3E');
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  background-size: 10px;
+}
+
+select::-ms-expand {
+  display: none;
+}
+
+select option {
+  padding: 10px;
+}

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0" />
+    <title>Stencil Component Starter</title>
+
+    <script type="module" src="/build/reusable-components.esm.js"></script>
+    <script nomodule src="/build/reusable-components.js"></script>
+  </head>
+  <body>
+    <my-component first="Stencil" last="'Don't call me a framework' JS"></my-component>
+    <!-- <fepoc-modal 
+    is-open="true" 
+    header-label="Confirmation"
+    content="Are you sure, do you want to delete this permanently?"
+    primary-button="Cancel"
+    secondary-button="Confirm">
+  </fepoc-modal> -->
+    <fepoc-tooltip></fepoc-tooltip>
+    <!-- <fepoc-drop-down-component></fepoc-drop-down-component>
+    <fepoc-drop-down-component options='["non-urgent", "weekend-only"]'></fepoc-drop-down-component> -->
+    <fepoc-drop-down-component id="myDropdown"></fepoc-drop-down-component>
+    <script>
+      document.querySelector('#myDropdown').options = [
+        { userId: 'uid1', userName: 'user name1' },
+        { userId: 'uid2', userName: 'user name2' },
+        { userId: 'uid3', userName: 'user name3' }
+      ];
+      document.querySelector('#myDropdown').displayprops = ['userId', 'userName'];
+    </script>
+
+<fepoc-drop-down-component id="myDropdown1"></fepoc-drop-down-component>
+<script>
+  document.querySelector('#myDropdown1').options = [
+     'uid1',
+     'uid2', 
+     'uid3', 
+  ];
+  
+</script>
+
+  </body>
+</html>
