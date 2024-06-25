@@ -80,16 +80,19 @@ export class ModalPopupComponent {
 
 
   render() {
+    const buttons = this.primarybutton && this.secondarybutton ? <div class="modal-footer">
+    <button class="btn cancel" onClick={() => this.onButtonsClick('cancel')} >{this.primarybutton}</button>
+    <button class="btn confirm" onClick={() => this.onButtonsClick('confirm')}>{this.secondarybutton}</button>
+  </div> : <div class="modal-footer">
+    <button class="btn confirm" onClick={() => this.onButtonsClick('confirm')}>{this.secondarybutton}</button>
+  </div>
     let openType = (
       <div id="fepoc-modal" class="modal">
         <div class="modal-content">
           <button class="close" onClick={() => this.onButtonsClick('x')}>&times;</button>
           <h2>{this.header}</h2>
-          <p>{this.content}</p>
-          <div class="modal-footer">
-            <button class="btn cancel" onClick={() => this.onButtonsClick('cancel')} >{this.primarybutton}</button>
-            <button class="btn confirm" onClick={() => this.onButtonsClick('confirm')}>{this.secondarybutton}</button>
-          </div>
+          <div class="content-section">{this.content}</div>
+          {buttons}
         </div>
       </div>
     );

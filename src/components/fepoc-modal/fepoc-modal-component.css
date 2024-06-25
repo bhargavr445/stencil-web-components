@@ -27,7 +27,7 @@ div#main-div {
   padding: 20px;
   border: 1px solid #888;
   width: 80%; /* Could be more or less, depending on screen size */
-  max-width: 500px;
+  max-width: auto;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
@@ -48,7 +48,7 @@ div#main-div {
 
 .modal-footer {
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
   margin-top: 20px;
 }
 
@@ -89,4 +89,9 @@ div#main-div {
 
 .modal .close:focus {
   outline: none;
+}
+
+.content-section {
+  padding: 20px 0;
+  font-size: 20px;
 }

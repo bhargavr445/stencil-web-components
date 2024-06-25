@@ -7,10 +7,10 @@ export const config: Config = {
       type: 'dist',
       esmLoaderPath: '../loader',
     },
-    // {
-    //   type: 'www',
-    //   serviceWorker: null
-    // },
+    {
+      type: 'www',
+      serviceWorker: null
+    },
     {
       type: 'dist-custom-elements',
       customElementsExportBehavior: 'auto-define-custom-elements',
