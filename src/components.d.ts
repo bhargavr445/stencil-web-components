@@ -23,6 +23,10 @@ export namespace Components {
         "displayText": string;
         "hoverLength": number;
     }
+    interface GbrPagination {
+        "datalist": any[];
+        "pagesize": number;
+    }
     interface MyComponent {
         /**
           * The first name
@@ -45,6 +49,10 @@ export interface FepocDropDownComponentCustomEvent<T> extends CustomEvent<T> {
 export interface FepocModalCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLFepocModalElement;
+}
+export interface GbrPaginationCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLGbrPaginationElement;
 }
 declare global {
     interface HTMLFepocDropDownComponentElementEventMap {
@@ -87,6 +95,23 @@ declare global {
         prototype: HTMLFepocTooltipElement;
         new (): HTMLFepocTooltipElement;
     };
+    interface HTMLGbrPaginationElementEventMap {
+        "paginatedlisthandler": any[];
+    }
+    interface HTMLGbrPaginationElement extends Components.GbrPagination, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLGbrPaginationElementEventMap>(type: K, listener: (this: HTMLGbrPaginationElement, ev: GbrPaginationCustomEvent<HTMLGbrPaginationElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLGbrPaginationElementEventMap>(type: K, listener: (this: HTMLGbrPaginationElement, ev: GbrPaginationCustomEvent<HTMLGbrPaginationElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLGbrPaginationElement: {
+        prototype: HTMLGbrPaginationElement;
+        new (): HTMLGbrPaginationElement;
+    };
     interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {
     }
     var HTMLMyComponentElement: {
@@ -97,6 +122,7 @@ declare global {
         "fepoc-drop-down-component": HTMLFepocDropDownComponentElement;
         "fepoc-modal": HTMLFepocModalElement;
         "fepoc-tooltip": HTMLFepocTooltipElement;
+        "gbr-pagination": HTMLGbrPaginationElement;
         "my-component": HTMLMyComponentElement;
     }
 }
@@ -120,6 +146,11 @@ declare namespace LocalJSX {
         "displayText"?: string;
         "hoverLength"?: number;
     }
+    interface GbrPagination {
+        "datalist"?: any[];
+        "onPaginatedlisthandler"?: (event: GbrPaginationCustomEvent<any[]>) => void;
+        "pagesize"?: number;
+    }
     interface MyComponent {
         /**
           * The first name
@@ -138,6 +169,7 @@ declare namespace LocalJSX {
         "fepoc-drop-down-component": FepocDropDownComponent;
         "fepoc-modal": FepocModal;
         "fepoc-tooltip": FepocTooltip;
+        "gbr-pagination": GbrPagination;
         "my-component": MyComponent;
     }
 }
@@ -148,6 +180,7 @@ declare module "@stencil/core" {
             "fepoc-drop-down-component": LocalJSX.FepocDropDownComponent & JSXBase.HTMLAttributes<HTMLFepocDropDownComponentElement>;
             "fepoc-modal": LocalJSX.FepocModal & JSXBase.HTMLAttributes<HTMLFepocModalElement>;
             "fepoc-tooltip": LocalJSX.FepocTooltip & JSXBase.HTMLAttributes<HTMLFepocTooltipElement>;
+            "gbr-pagination": LocalJSX.GbrPagination & JSXBase.HTMLAttributes<HTMLGbrPaginationElement>;
             "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
         }
     }

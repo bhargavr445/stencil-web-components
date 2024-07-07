@@ -89,7 +89,7 @@ export class ModalPopupComponent {
     let openType = (
       <div id="fepoc-modal" class="modal">
         <div class="modal-content">
-          <button class="close" onClick={() => this.onButtonsClick('x')}>&times;</button>
+          <span class="close" onClick={() => this.onButtonsClick('x')}>&times;</span>
           <h2>{this.header}</h2>
           <div class="content-section">{this.content}</div>
           {buttons}
