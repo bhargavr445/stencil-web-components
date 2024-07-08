@@ -75,10 +75,13 @@ export class GbrPagination {
 
   handleKeyPress(event) {
     if (event.key === 'Enter') {
+      console.log('ENTER');
       const previousPageNumber = this.pageNumber;
       const goToPageNumber = Number(event.target.value);
 
       if (goToPageNumber > 0 && goToPageNumber <= Math.ceil(this.datalist.length / this.pagesize)) {
+        console.log('Proceed');
+        
         const beginningNumber = (goToPageNumber - 1) * this.pagesize;
         const endingNumber = beginningNumber + this.pagesize;
 
@@ -89,9 +92,16 @@ export class GbrPagination {
         this.disableFirstPage = goToPageNumber === 1;
         this.sendDataToTableComponent();
       } else {
+        console.log('Dont Proceed');
+        console.log(previousPageNumber);
         event.preventDefault();
+        event.target.value = previousPageNumber
         this.pageNumber = previousPageNumber;
+        console.log(this.pageNumber);
       }
+    } else {
+      console.log('Not Enter');
+      
     }
 
   }
@@ -122,7 +132,7 @@ export class GbrPagination {
         <button id='firstButton' class="table-btn mat-h-20" disabled={this.disableFirstPage} onClick={() => this.onFirstClick()}>first</button>
         <button id='previousButton' class="table-btn mat-h-20" disabled={this.disableFirstPage} onClick={() => this.onPreviousClick()}>previous</button>
         {/* <span class="paging-info">&nbsp; {this.displayRecordsRange} of {this.datalist.length} Records,  Page </span> */}
-        <span>&nbsp;Page&nbsp;</span>
+        <span>&nbsp;Page&nbsp;</span> 
         <input type="number" class="paging-input" value={this.pageNumber} onKeyPress={(event) => this.handleKeyPress(event)} /> &nbsp; of {roundedNumber}
         <button id='nextButton' class="table-btn mat-h-20" disabled={this.disableLastPage} onClick={() => this.onNextClick()}>next</button>
         <button id='lastButton' class="table-btn mat-h-20" disabled={this.disableLastPage} onClick={() => this.onLastClick()}>last</button>
