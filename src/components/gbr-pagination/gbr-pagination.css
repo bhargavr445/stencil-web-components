@@ -1,0 +1,44 @@
+:host {
+  display: block;
+}
+.table-btn {
+  padding: 5px 10px;
+  margin: 0 5px;
+  cursor: pointer;
+  border: 1px solid #ccc;
+  background-color: #f9f9f9;
+}
+
+.table-btn[disabled] {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.paging-info {
+  margin: 0 10px;
+}
+
+.table-btn {
+  background-color: #007bff;
+  border: 2px solid #007bff;
+  color: #fff;
+  padding: 3px 7px;
+  border-radius: 5px;
+}
+.paging-input {
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  border-radius: 4px;
+  border: 2px solid grey;
+  &:focus {
+    outline: none;
+  }
+}
+
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
